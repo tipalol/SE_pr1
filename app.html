@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<title>Извлекатель корня</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-dark">
+			<a class="navbar-brand" href="index.html">Извлекатель корня</a>
+			<form class="form-inline my-2 my-lg-0">
+				<button class="btn btn-sm btn-outline-success mr-sm-2" type="button">Онлайн версия</button>
+				<button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="button">Скачать</button>
+			</form>
+	</nav>
+
+	<div class="container">
+		<div id="app">
+			<img class="img" src="img/hse.png"></img>
+			<div class="container">
+				<form class="app-form">
+					<div class="form-row">
+						<div class="col">
+							<input id="num" type="text" class="form-control" placeholder="Из чего извлечь корень?">
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col">
+							<input id="result" type="text" class="form-control" placeholder="Здесь появится результат" readonly>
+						</div>
+					</div>
+					<div class="form-row">
+						<div class="col" style="margin-top:10px;">
+							<button id="ok-btn" class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="button">Вычислить корень</button>
+						</div>
+					</div>
+				</form>
+				<form class="app-form" style="padding-top: 100px;">
+					<div class="form-group">
+					    <label id="lbl_num" for="formControlRange">Выберите кол-во цифр после запятой: 2</label>
+					    <input type="range" class="form-control-range" id="formControlRange" max="20" min="0" value="2">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<footer>&copy; SE Omega Group Unreal Developing 2018</footer>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script>
+		var nums_after_comma = 2;
+
+		$(document).ready(function(){
+			$('#formControlRange').change(function(){
+				document.getElementById('lbl_num').innerText = "Выберите кол-во цифр после запятой: " + $('#formControlRange').val();
+				nums_after_comma = document.getElementById('formControlRange').val();
+			});
+			$('#ok-btn').click(function(){
+				document.getElementById('result').value = Math.sqrt( document.getElementById('num').value * Math.pow( 0.1, nums_after_comma ) ) * Math.pow (10, nums_after_comma-1);
+
+				var res = document.getElementById('num').value;
+				res *= Math.pow( 0.1, nums_after_comma );
+				res = Math.sqrt( res );
+				res = Math.round( res );
+				res *= Math.pow(10, nums_after_comma-1);
+				alert(res);
+
+			});
+		});
+
+		
+	</script>
+</body>
+</html>
