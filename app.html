@@ -51,25 +51,30 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="js/math.min.js"></script>
 	<script>
 		var nums_after_comma = 2;
 
 		$(document).ready(function(){
 			$('#formControlRange').change(function(){
 				document.getElementById('lbl_num').innerText = "Выберите кол-во цифр после запятой: " + $('#formControlRange').val();
-				nums_after_comma = document.getElementById('formControlRange').val();
+				nums_after_comma =  math.eval(document.getElementById('formControlRange').value);
 			});
+			
 			$('#ok-btn').click(function(){
-				document.getElementById('result').value = Math.sqrt( document.getElementById('num').value * Math.pow( 0.1, nums_after_comma ) ) * Math.pow (10, nums_after_comma-1);
-				var audio = new Audio('music/123.mp3');
-				audio.play();
-
 				var res = document.getElementById('num').value;
-				res *= Math.pow( 0.1, nums_after_comma );
-				res = Math.sqrt( res );
-				res = Math.round( res );
-				res *= Math.pow(10, nums_after_comma-1);
-				//alert(res);
+				
+				var resultat = math.sqrt( math.eval(res) ) ; //toFixed()
+
+
+				if (resultat == 0) {
+					document.getElementById('result').value = '0';
+				} else if (new String(resultat).indexOf('+') != -1 || new String(resultat).indexOf('-') != -1) {
+					document.getElementById('result').value =  '+- ' + math.sqrt( math.eval(res) ) ;
+				} else {
+
+					document.getElementById('result').value =  '+- ' + math.sqrt( math.eval(res) ).toFixed(nums_after_comma) ;
+				}
 
 			});
 		});
