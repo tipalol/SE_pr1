@@ -32,12 +32,12 @@
 						</div>
 					</div>
 					<div class="form-row">
-						<div class="col" style="margin-top:10px;">
+						<div class="col mt10">
 							<button id="ok-btn" class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="button">Вычислить корень</button>
 						</div>
 					</div>
 				</form>
-				<form class="app-form" style="padding-top: 100px;">
+				<form class="app-form pt100">
 					<div class="form-group">
 					    <label id="lbl_num" for="formControlRange">Выберите кол-во цифр после запятой: 2</label>
 					    <input type="range" class="form-control-range" id="formControlRange" max="20" min="0" value="2">
@@ -64,15 +64,13 @@
 			$('#ok-btn').click(function(){
 				var res = document.getElementById('num').value;
 				
-				var resultat = math.sqrt( math.eval(res) ) ; //toFixed()
-
+				var resultat = math.sqrt( math.eval(res) ) ;
 
 				if (resultat == 0) {
 					document.getElementById('result').value = '0';
 				} else if (new String(resultat).indexOf('+') != -1 || new String(resultat).indexOf('-') != -1) {
 					document.getElementById('result').value =  '+- ' + math.sqrt( math.eval(res) ) ;
 				} else {
-
 					document.getElementById('result').value =  '+- ' + math.sqrt( math.eval(res) ).toFixed(nums_after_comma) ;
 				}
 
