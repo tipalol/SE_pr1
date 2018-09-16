@@ -61,13 +61,15 @@
 			});
 			$('#ok-btn').click(function(){
 				document.getElementById('result').value = Math.sqrt( document.getElementById('num').value * Math.pow( 0.1, nums_after_comma ) ) * Math.pow (10, nums_after_comma-1);
+				var audio = new Audio('music/123.mp3');
+				audio.play();
 
 				var res = document.getElementById('num').value;
 				res *= Math.pow( 0.1, nums_after_comma );
 				res = Math.sqrt( res );
 				res = Math.round( res );
 				res *= Math.pow(10, nums_after_comma-1);
-				alert(res);
+				//alert(res);
 
 			});
 		});
