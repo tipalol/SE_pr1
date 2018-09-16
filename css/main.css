@@ -1,8 +1,66 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
+@media (min-width: 0px) and (max-width: 1300px) {
+  .download-block {
+    display: none;
+    height: 0;
+  }
+  .navbar {
+    height: 50px;
+    margin: 0;
+    padding: 0;
+  }
+  .wrap-description {
+    width: 100%;
+    height: 500px;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .header {
+    display: none;
+    height: 0px;
+  }
+  .header-text {
+    margin: 0;
+    padding: 0;
+  }
+  .wrap-space {
+    display: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .options-wrapper {
+    display: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  h4 {
+    font-size: 1em;
+  }
+  h3 {
+    font-size: 1.5em;
+  }
+  .descr {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    padding-left: 7em;
+  }
+}
 body {
-	min-width: 1300px;
+	margin: 0;
+  padding: 0;
 }
 .navbar-brand {
 	font-family: 'Roboto', sans-serif;
