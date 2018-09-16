@@ -64,14 +64,20 @@
 			$('#ok-btn').click(function(){
 				var res = document.getElementById('num').value;
 				
-				var resultat = math.sqrt( math.eval(res) ) ;
-
-				if (resultat == 0) {
-					document.getElementById('result').value = '0';
-				} else if (new String(resultat).indexOf('+') != -1 || new String(resultat).indexOf('-') != -1) {
-					document.getElementById('result').value =  '+- ' + math.sqrt( math.eval(res) ) ;
+				var resultat = math.eval(res);
+				if (resultat < 0) {
+					document.getElementById('result').value = 'Из отрицательного числа корня не существует';
 				} else {
-					document.getElementById('result').value =  '+- ' + math.sqrt( math.eval(res) ).toFixed(nums_after_comma) ;
+
+					resultat = math.sqrt(resultat);
+
+					if (resultat == 0) {
+						document.getElementById('result').value = '0';
+					} else if (new String(resultat).indexOf('+') != -1 || new String(resultat).indexOf('-') != -1) {
+						document.getElementById('result').value =  '+- ' + math.sqrt( math.eval(res) ) ;
+					} else {
+						document.getElementById('result').value =  '+- ' + math.sqrt( math.eval(res) ).toFixed(nums_after_comma) ;
+					}
 				}
 
 			});
