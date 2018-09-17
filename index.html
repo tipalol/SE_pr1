@@ -10,7 +10,7 @@
 <body>
 	<nav class="navbar navbar-dark bg-dark">
 		
-			<a class="navbar-brand" href="index.html">Извлекатель корня</a>
+			<a id="nav-brand" class="navbar-brand" href="index.html">Извлекатель корня</a>
 			<form class="form-inline my-2 my-lg-0">
 				<a href="#"><img id="lang-icon" src="img/eng.png"/></a>
 				<button class="btn btn-sm btn-outline-success mr-sm-2" onclick="document.location='app.html'" type="button">Онлайн версия</button>
@@ -72,9 +72,63 @@
 			</div>
 		</div>
 	</div>
-	<footer>&copy; SE Omega Group Unreal Developing 2018</footer>
+	<footer>&copy; SE Alpha Group Unreal Developing 2018</footer>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+			var lang = 0;
+			$('#lang-icon').click(function(){
+				if (lang == 0) {
+					lang = 1;
+					document.title = 'Root extractor';
+					this.src = 'img/china.png';
+					$('#nav-brand').text('Root extractor');
+					$('button')[0].innerText = 'Online version';
+					$('button')[1].innerText = 'Download';
+					$('h3')[0].innerText = 'Root extractor';
+					$('h3')[1].innerText = 'You found it!';
+					$('h3')[2].innerText = 'Updates';
+					$('h4')[0].innerText = 'New age in IT, amazing Root extractor';
+					$('h4')[1].innerText = 'You were looking for a program that could satisfy your desires for root extraction?';
+					$('h4')[2].innerText = 'Find the roots from anything, anywhere and anytime.';
+					$('h4')[3].innerText = 'The program is updated regularly, but if you do not have an Internet connection - do not be afraid, all the functionality of the application is available to you and in offline mode';
+					$('h4')[4].innerText = 'Now the options are more convenient than ever';
+					//document.getElementById();
+				} else if (lang == 1) {
+					lang = 2;
+					document.title = '根提取器';
+					this.src = 'img/russia.png';
+					$('#nav-brand').text('根提取器');
+					$('button')[0].innerText = '根提取器';
+					$('button')[1].innerText = '下载';
+					$('h3')[0].innerText = '根提取器';
+					$('h3')[1].innerText = '你找到了!';
+					$('h3')[2].innerText = '更新';
+					$('h4')[0].innerText = 'IT的新时代，惊人的根提取器';
+					$('h4')[1].innerText = '您正在寻找一个能满足您对根提取的需求的程序吗？';
+					$('h4')[2].innerText = '随时随地找到根源。';
+					$('h4')[3].innerText = '该程序定期更新，但如果您没有互联网连接 - 请不要害怕，您可以在离线模式下使用该应用程序的所有功能';
+					$('h4')[4].innerText = '现在选项比以往更方便';
+				} else {
+					lang = 0;
+					document.title = 'Извлекатель корня';
+					this.src = 'img/eng.png';
+					$('#nav-brand').text('Извлекатель корня');
+					$('button')[0].innerText = 'Скачать';
+					$('button')[1].innerText = 'Онлайн версия';
+					$('h3')[0].innerText = 'Извлекатель корня';
+					$('h3')[1].innerText = 'Вы нашли её!';
+					$('h3')[2].innerText = 'Обновления';
+					$('h4')[0].innerText = 'Новое слово в технологиях, уникальный извлекатель корня';
+					$('h4')[1].innerText = 'Вы искали программу, которая бы смогла удовлетворить ваши желания по извлечению корней?';
+					$('h4')[2].innerText = 'Находите корни из чего угодно, где угодно и когда угодно.';
+					$('h4')[3].innerText = 'Программа регулярно обновляется, но если у вас нет подключения к интернету - не бойтесь, весь функционал приложения доступен вам и в режиме оффлайн';
+					$('h4')[4].innerText = 'Теперь опции как никогда удобно изменять';
+				}
+			});
+		});
+	</script>
 </body>
 </html>

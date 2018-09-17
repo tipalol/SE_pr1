@@ -9,8 +9,9 @@
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark">
-			<a class="navbar-brand" href="index.html">Извлекатель корня</a>
+			<a id="nav-brand" class="navbar-brand" href="index.html">Извлекатель корня</a>
 			<form class="form-inline my-2 my-lg-0">
+				<a href="#"><img id="lang-icon" src="img/eng.png"/></a>
 				<button class="btn btn-sm btn-outline-success mr-sm-2" type="button">Онлайн версия</button>
 				<button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" type="button">Скачать</button>
 			</form>
@@ -54,6 +55,7 @@
 	<script src="js/math.min.js"></script>
 	<script>
 		var nums_after_comma = 2;
+		var lang = 0;
 
 		$(document).ready(function(){
 			$('#formControlRange').change(function(){
@@ -61,12 +63,56 @@
 				nums_after_comma =  math.eval(document.getElementById('formControlRange').value);
 			});
 			
+			$('#lang-icon').click(function(){
+				if (lang == 0) {
+					lang = 1;
+					document.title = 'Root extractor';
+					this.src = 'img/china.png';
+					$('button')[0].innerText = 'Online version';
+					$('button')[1].innerText = 'Download';
+					$('#nav-brand').text('Root extractor');
+					document.getElementById('num').setAttribute('placeholder', 'From what to extract the root?');
+					document.getElementById('result').setAttribute('placeholder', 'Here is the result');
+					$('#ok-btn').text('Extract the root');
+					$('#lbl_num').text('Select the number of digits after the decimal point: ' + nums_after_comma);
+				} else if (lang == 1) {
+					lang = 2;
+					document.title = '根提取器';
+					this.src = 'img/russia.png';
+					$('button')[0].innerText = '根提取器';
+					$('button')[1].innerText = '下载';
+					$('#nav-brand').text('根提取器');
+					document.getElementById('num').setAttribute('placeholder', '从什么提取根？');
+					document.getElementById('result').setAttribute('placeholder', '这是结果');
+					$('#ok-btn').text('提取根');
+					$('#lbl_num').text('选择小数点后的位数：' + nums_after_comma);
+				} else {
+					lang = 0;
+					document.title = 'Извлекатель корня';
+					this.src = 'img/eng.png';
+					$('button')[0].innerText = 'Скачать';
+					$('button')[1].innerText = 'Онлайн версия';
+					$('#nav-brand').text('Извлекатель корня');
+					document.getElementById('num').setAttribute('placeholder', 'Из чего извлечь корень?');
+					document.getElementById('result').setAttribute('placeholder', 'Здесь появится результат');
+					$('#ok-btn').text('Вычислить корень');
+					$('#lbl_num').text('Выберите кол-во цифр после запятой: ' + nums_after_comma);
+				}
+			})
+
 			$('#ok-btn').click(function(){
 				var res = document.getElementById('num').value;
 				
 				var resultat = math.eval(res);
 				if (resultat < 0) {
-					document.getElementById('result').value = 'Из отрицательного числа корня не существует';
+					if (lang == 0) {
+						document.getElementById('result').value = 'Из отрицательного числа корня не существует';
+					} else if (lang == 1) {
+						document.getElementById('result').value = 'There is no negative number of roots';
+					} else if (lang == 2) {
+						document.getElementById('result').value = '根没有负数';
+					}
+					
 				} else {
 
 					resultat = math.sqrt(resultat);
